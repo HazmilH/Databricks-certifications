@@ -23,3 +23,7 @@ DA.init()
 _setup_tables(create_raw=True)
 
 DA.conclude_setup()
+
+# COMMAND ----------
+
+

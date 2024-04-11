@@ -10,3 +10,7 @@ def _setup_tables(create_raw=False):
     DA.clone_source_table("products", f"{DA.paths.datasets}/ecommerce/delta", "item_lookup")
 
     print()
+
+# COMMAND ----------
+
+

@@ -35,7 +35,7 @@
 # COMMAND ----------
 
 # TODO
-events_df = FILL_IN
+events_df = spark.table('events')
 
 # COMMAND ----------
 
@@ -45,6 +45,7 @@ events_df = FILL_IN
 # COMMAND ----------
 
 # TODO
+display(events_df)
 
 # COMMAND ----------
 
@@ -57,9 +58,11 @@ events_df = FILL_IN
 # COMMAND ----------
 
 # TODO
-mac_df = (events_df
-          .FILL_IN
-         )
+mac_df = events_df.select('device', 'event_timestamp') \
+            .where('device = "macOS"') \
+            .orderBy('event_timestamp') 
+
+mac_df.display()
 
 # COMMAND ----------
 
