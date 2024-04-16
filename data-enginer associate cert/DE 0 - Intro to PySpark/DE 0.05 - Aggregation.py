@@ -56,6 +56,10 @@ df.groupBy("geo.state", "geo.city")
 
 # COMMAND ----------
 
+display(df)
+
+# COMMAND ----------
+
 # MAGIC %md ### Grouped data methods
 # MAGIC Various aggregation methods are available on the <a href="https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/grouping.html" target="_blank">GroupedData</a> object.
 # MAGIC
@@ -82,6 +86,7 @@ display(event_counts_df)
 
 # COMMAND ----------
 
+# agg(sum("ecommerce.total_item_quantity").alias("total_purchases"))
 avg_state_purchases_df = df.groupBy("geo.state").avg("ecommerce.purchase_revenue_in_usd")
 display(avg_state_purchases_df)
 

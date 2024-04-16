@@ -89,6 +89,10 @@ display(df.select(split(df.email, '@', 0).alias('email_handle')))
 
 # COMMAND ----------
 
+details_df.show(5, truncate=False)
+
+# COMMAND ----------
+
 mattress_df = (details_df
                .filter(array_contains(col("details"), "Mattress"))
                .withColumn("size", element_at(col("details"), 2)))
@@ -111,7 +115,10 @@ display(mattress_df)
 
 # COMMAND ----------
 
-size_df = mattress_df.groupBy("email").agg(collect_set("size").alias("size options"))
+size_df = (mattress_df
+           .groupBy("email")
+           .agg(collect_set("size")
+            .alias("size options")))
 
 display(size_df)
 
